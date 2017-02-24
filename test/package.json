@@ -1,0 +1,26 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "Test for Cyanide",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "test",
+    "mocha",
+    "chai",
+    "faker",
+    "cyanide",
+    "unit",
+    "test"
+  ],
+  "author": "Duatis",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "faker": "^3.1.0",
+    "mocha": "^3.2.0"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "generator-html5-app": {
+    "stylesheet": "css",
+    "appname": "web",
+    "script": "js",
+    "markup": "html",
+    "build": "gulp",
+    "testFramework": "mocha",
+    "includejQuery": true,
+    "description": "A sample description",
+    "authorName": "Duatis",
+    "authorEmail": "duatis@toxic-labs.com",
+    "authorURL": "somedomain.com",
+    "license": "MIT"
+  }
+}

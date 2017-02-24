@@ -1,0 +1,14 @@
+{
+  "name": "socket",
+  "version": "1.0.0",
+  "description": "socket com for Cyanide",
+  "main": "module.js",
+  "scripts": {
+    "start": "node module.js"
+  },
+  "author": "Duatis",
+  "license": "ISC",
+  "dependencies": {
+    "socket.io": "^1.5.1"
+  }
+}
