@@ -7,7 +7,7 @@
 var chai = require('chai')
 var expect = chai.expect
 var faker = require('faker')
-var models = require('../../library/entities/module')
+var models = require('../../library/models/module')
 
 
 describe("Team model", ()=>{

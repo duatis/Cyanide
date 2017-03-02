@@ -1,20 +1,22 @@
 /**
  * Created by duatis on 17/11/2016.
  */
-var Model = require('../model');
+var Model = require('../classes/model');
 
-class Player extends Model
+class Team extends Model
 {
     constructor()
     {
         var schema =
         {
             name: {type: String, required: true},
-            number: {type: Number, required: true}
+            _players: [{type: Model.Schema.Types.ObjectId, ref: 'Player'}]
         };
+
         super(schema);
         return this.model;
     }
+
 }
 
-module.exports = new Player();
+module.exports = new Team();

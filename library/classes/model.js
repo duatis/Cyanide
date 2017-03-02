@@ -5,7 +5,6 @@ var db = require('./database')
 class Model
 {
     /**
-     *
      * @param schema structure for the mongo document based on mongoose
      * @parem methods custom methods for schema
      */
