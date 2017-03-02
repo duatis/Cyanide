@@ -6,7 +6,7 @@ var expect = chai.expect
 var faker = require('faker')
 var models = require('../library/entities/module')
 
-describe('Models', function()
+describe('Entities', function()
 {
     it('Should be invalid if empty', (done) => {
         var player = new models.Player()
@@ -33,7 +33,7 @@ describe('Models', function()
         })
     })
 
-    it.only("Should not save invalid objects", (done) =>{
+    it("Should not save invalid objects", (done) =>{
         var player = new models.Player()
         player.save( (err, player )=>{
             expect(err).to.be.ok

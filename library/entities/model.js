@@ -7,11 +7,13 @@ class Model
     /**
      *
      * @param schema structure for the mongo document based on mongoose
+     * @parem methods custom methods for schema
      */
-    constructor( schema )
+    constructor( schema, methods )
     {
-        var _schema = new db.Schema(schema);                       //Create schema
-        this.model = db.model( this.constructor.name, _schema );   //Create model
+        this.schema = new db.Schema(schema);                       //Create schema
+        if(methods) methods(this.schema);
+        this.model = db.model( this.constructor.name, this.schema );   //Create model
     }
 
     static get Schema()

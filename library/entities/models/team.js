@@ -9,12 +9,14 @@ class Team extends Model
     {
         var schema =
         {
-            name: String,
+            name: {type: String, required: true},
             _players: [{type: Model.Schema.Types.ObjectId, ref: 'Player'}]
         };
+
         super(schema);
         return this.model;
     }
+
 }
 
 module.exports = new Team();
