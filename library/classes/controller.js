@@ -32,6 +32,16 @@ class Controller
             });
         });
     }
+
+    find(query, cb)
+    {
+        this.model.find(query,cb);
+    }
+
+    findOne(query, cb)
+    {
+        this.model.findOne(query, cb);
+    }
 }
 
 

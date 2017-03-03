@@ -62,9 +62,35 @@ describe("Controller class", (done)=>{
 
     });
 
-    it("Should respond to find");
-    it("Should respond to findOne");
-    it("Should respond to delete");
+    it("Should respond to find", (done) =>{
+        expect(controller).to.respondsTo('find');
+        done();
+    });
+
+    it("Should find a collection of models", (done) =>{
+        controller.find({},(err, data)=>{
+            if(err)return done(err);
+            expect(data).to.be.an('array');
+            done();
+        })
+    });
+
+    it("Should respond to findOne", (done) =>{
+        expect(controller).to.respondsTo('findOne');
+        done();
+    });
+
+    it("Should return one model", (done) => {
+        controller.findOne({}, (err, data)=>{
+            expect(data).to.be.ok.and.to.have.property('name')
+            done();
+        });
+    })
+
+    it("Should respond to remove", (done) =>{
+        expect(controller).to.respondsTo('remove');
+        done();
+    } );
 
 
 });
