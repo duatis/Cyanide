@@ -42,6 +42,11 @@ class Controller
     {
         this.model.findOne(query, cb);
     }
+
+    remove(query, cb)
+    {
+        this.model.remove(query, cb);
+    }
 }
 
 

@@ -53,6 +53,19 @@ describe("Controller class", (done)=>{
 
     });
 
+    it("Save a new model should +1 to database", (done) =>{
+        let tmp = new models.Player(generateValidPlayer());
+        controller.find({},(err, data)=> {
+            let l = data.length;
+            controller.save(tmp, (err, data)=>{
+                controller.find({},(err, data)=> {
+                        expect(data.length - l).to.eql(1)
+                        done();
+                    });
+                });
+            });
+        });
+
     it("Should reject a invalid model", (done) =>{
         var player = controller.create();
         controller.save(player, (err) =>{
@@ -61,6 +74,7 @@ describe("Controller class", (done)=>{
         })
 
     });
+
 
     it("Should respond to find", (done) =>{
         expect(controller).to.respondsTo('find');
@@ -85,13 +99,26 @@ describe("Controller class", (done)=>{
             expect(data).to.be.ok.and.to.have.property('name')
             done();
         });
-    })
+    });
+
 
     it("Should respond to remove", (done) =>{
         expect(controller).to.respondsTo('remove');
         done();
     } );
 
+    it("Remove should delete one element", (done) => {
+        controller.find({},(err, data)=>{
+            let l = data.length;
+            controller.remove(data[0], (err,data) => {
+                if(err)return done(err);
+                controller.find({}, (err, data)=>{
+                    expect(l - data.length).to.eql(1)
+                    done()
+                })
+            })
+        })
+    });
 
 });
 
