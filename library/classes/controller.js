@@ -27,7 +27,7 @@ class Controller
                 if(cb)return cb(err);
                 else return;
             }
-            entity.save((err, data)=>{
+           return entity.save((err, data)=>{
                 if(cb)cb(err,data);
             });
         });
@@ -35,17 +35,17 @@ class Controller
 
     find(query, cb)
     {
-        this.model.find(query,cb);
+       return this.model.find(query,cb);
     }
 
     findOne(query, cb)
     {
-        this.model.findOne(query, cb);
+        return this.model.findOne(query, cb);
     }
 
     remove(query, cb)
     {
-        this.model.remove(query, cb);
+        return this.model.remove(query, cb);
     }
 }
 

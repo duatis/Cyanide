@@ -7,10 +7,16 @@ function handleError(err) {
 }
 
 gulp.task('default', () => {
+
+    gulp.src('./**/*.test.js').
+    pipe(mocha()).
+    on("error", handleError);
+
     gulp.watch('./**/*.test.js', (event)  =>
     {
-        gulp.src(event.path, {read:false}).
-        pipe(mocha({reporter: 'nyan'})).
+        console.log("path:" + event.path);
+        gulp.src(event.path, {read:false, ingoreInitial: false}).
+        pipe(mocha()).
         on("error", handleError);
     }
     );

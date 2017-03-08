@@ -120,6 +120,26 @@ describe("Controller class", (done)=>{
         })
     });
 
+    it("Should work with promises", (done) =>{
+        controller.find({}).
+        then((data)=> {
+            expect(data).to.be.ok;
+            done();
+        });
+    } );
+
+    it("Should manage promises errors", (done) => {
+        var player = new models.Player();
+        player.save().
+        then((data)=>{
+            done(data); //If this executes means that the error promise have failed
+        }).
+        then(null, (err) =>{
+            expect(err).not.to.be.null;
+            done();
+        })
+    });
+
 });
 
 var generateValidPlayer = ()=>{

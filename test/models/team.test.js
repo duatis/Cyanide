@@ -38,7 +38,7 @@ describe("Team model", ()=>{
         player.save((err, data)=> {
             if(err)return done(err);
             var team = new models.Team({name: faker.name.findName()});
-            team._players.push(player._id);
+            team._players.push(player);
             team.save((err, data) => {
                 if (err) return done(err);
                 expect(data._players).not.to.be.empty;
@@ -52,10 +52,11 @@ describe("Team model", ()=>{
         populate("_players").
         exec((err, data) =>{
             if(err)return done(err);
-            var player = new models.Player(data._players[0])
+            var player = new models.Player(data._players[0]);
             player.validate((err)=>{
+                if(err)return done(err);
                 expect(err).to.be.null
-                done()
+                done();
             })
         });
     });
