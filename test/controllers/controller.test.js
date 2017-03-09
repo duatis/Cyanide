@@ -140,6 +140,14 @@ describe("Controller class", (done)=>{
         })
     });
 
+
+    it("Shoud hava a getter for the model", (done)=>{
+        var player = new models.Player();
+        console.log(player.model)
+        expect(player.model).to.be.ok;
+        done();
+    })
+
 });
 
 var generateValidPlayer = ()=>{

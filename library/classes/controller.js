@@ -47,6 +47,7 @@ class Controller
     {
         return this.model.remove(query, cb);
     }
+    
 }
 
 
