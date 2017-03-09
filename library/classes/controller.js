@@ -4,6 +4,7 @@
 class Controller
 {
     /**
+     * Creates a controller based on a Model based class
      * @param model Object of type extending Model class
      */
     constructor(model)
@@ -19,6 +20,11 @@ class Controller
         return new this.model(data);
     }
 
+    /**
+     * Validates and saves an entity if its valid
+     * @param entity object of controllers model's class
+     * @param cb callback funcion
+     */
     save(entity, cb)
     {
         entity.validate((err)=>
@@ -33,11 +39,23 @@ class Controller
         });
     }
 
+    /**
+     * Looks for a collection of entities
+     * @param query mongo query object
+     * @param cb callback funcion
+     * @returns promise
+     */
     find(query, cb)
     {
        return this.model.find(query,cb);
     }
 
+    /**
+     * Search for a single entities marching que query criteria
+     * @param query mongo query object
+     * @param cb callback funcion
+     * @returns promise
+     */
     findOne(query, cb)
     {
         return this.model.findOne(query, cb);
@@ -47,7 +65,7 @@ class Controller
     {
         return this.model.remove(query, cb);
     }
-    
+
 }
 
 
