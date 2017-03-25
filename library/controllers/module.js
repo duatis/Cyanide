@@ -3,7 +3,8 @@
  */
 var controllers  = {
     PlayersController: require("./playersController"),
-    TeamsController: require("./teamsController")
+    TeamsController: require("./teamsController"),
+    EventsController: require("./eventsController"),
 }
 
 module.exports = controllers;

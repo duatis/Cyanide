@@ -1,5 +1,6 @@
 var models = {
     Player: require('./player'),
-    Team: require('./team')
+    Team: require('./team'),
+    Event: require('./event')
 };
 module.exports = models

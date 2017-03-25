@@ -27,16 +27,11 @@ class Controller
      */
     save(entity, cb)
     {
-        entity.validate((err)=>
-        {
-            if(err){
-                if(cb)return cb(err);
-                else return;
-            }
+
            return entity.save((err, data)=>{
                 if(cb)cb(err,data);
             });
-        });
+       
     }
 
     /**
